@@ -18,11 +18,11 @@ let upVote = (ProxyState.post.upvote += 1)
 let downVote = (ProxyState.post.downvote -= 1)
 
 
-    let upvotes = document.getElementById('likes')
-    upvotes.innerText = upVote
+    // let upvotes = document.getElementById('likes')
+    // upvotes.innerText = upVote
 
-    let downVotes = document.getElementById('dislikes')
-    downVotes.innerText = downVote
+    // let downVotes = document.getElementById('dislikes')
+    // downVotes.innerText = downVote
    
 
 }

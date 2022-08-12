@@ -5,11 +5,13 @@ import { BadRequest, Forbidden } from '../utils/Errors.js'
 class PostsService {
   
   async getAllPosts() {
+    console.log('getting all post service')
     let posts = await dbContext.Posts.find()
     return posts
   }
   
   async getPostById(postId) {
+    console.log('getting post by id service', postId);
     let post = await dbContext.Posts.findById(postId)
     if (!post) {
       throw new BadRequest('Invalid Post ID')
@@ -30,19 +32,19 @@ class PostsService {
     return posts
   }
 
-  // async editPost(postId, postData) {
-  //   let post = await dbContext.Posts.findById(postId)
+  async editPost(postId, postData) {
+    let post = await dbContext.Posts.findById(postId)
 
-  //   post.title = postData.title || post.title
-  //   post.img = postData.img || post.img
-  //   post.upVotes = postData.upVotes || post.upVotes
-  //   post.downVotes = post.downVotes || post.downVotes
+    post.title = postData.title || post.title
+    post.img = postData.img || post.img
+    post.upVotes = postData.upVotes || post.upVotes
+    post.downVotes = postData.downVotes || post.downVotes
 
-  //   await post.save()
-  //   return post
-  // }
+    await post.save()
+    return post
+  }
 
-  async deletePost(postId, userId) {
+  async deletePost(postId,) {
     let post = await this.getPostById(postId)
     await post.remove()
     return post

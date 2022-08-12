@@ -18,16 +18,18 @@ export class AllPostsController {
         ProxyState.on('allposts', _drawAllPost)
         this.getAllPost()
     }
-    async setSinglePost(postId){
+    async setSinglePost(postId) {
         try {
-          await allpostsService.setSinglePost(postId)
+            console.log("Setting Single Post", postId);
+            await allpostsService.setSinglePost(postId)
         } catch (error) {
-          console.log('[Set Single Post]');
-          Pop.error(error)
+            console.log('[Set Single Post]');
+            Pop.error(error)
         }
-      }
+    }
     async getAllPost() {
         try {
+            console.log("Getting All Post");
             await allpostsService.getAllPost()
 
         } catch (error) {
@@ -55,8 +57,9 @@ export class AllPostsController {
         }
     }
 
-    async deletePost(postId){
+    async deletePost(postId) {
         try {
+            console.log("Deleting Post", postId);
             await allpostsService.deletePost(postId)
         } catch (error) {
             console.log('[Deleting Post]', error)

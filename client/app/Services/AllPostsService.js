@@ -1,5 +1,4 @@
 import { ProxyState } from "../AppState.js";
-import { AllPost } from "../Models/AllPost.js";
 import { Post } from "../Models/Post.js";
 import { Pop } from "../Utils/Pop.js";
 import { api } from "./AxiosService.js";
@@ -7,7 +6,7 @@ import { api } from "./AxiosService.js";
 
 class AllPostsService {
   async setSinglePost(postId) {
-    const post = ProxyState.post.find(c => c.id == postId)
+    const post = ProxyState.posts.find(c => c.id == postId)
     if(!post){
       return
     }

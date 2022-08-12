@@ -33,23 +33,23 @@ export class CommentsController{
             Pop.error(error)
         }
     }
-    async editComment(commentId){
-        try {
-            // @ts-ignore
-            window.event.preventDefault()
-            // @ts-ignore
-            let form = window.event.target
-            let commentEdit ={
-                id: commentId,
-                // @ts-ignore=
-                comment: form.comment.value,
-            }
-            await commentsService.editComment(commentEdit)
-        } catch (error) {
-            console.log('[Edit Comment]', error);
-            Pop.error(error)
-        }
-    }
+    // async editComment(commentId){
+    //     try {
+    //         // @ts-ignore
+    //         window.event.preventDefault()
+    //         // @ts-ignore
+    //         let form = window.event.target
+    //         let commentEdit ={
+    //             id: commentId,
+    //             // @ts-ignore=
+    //             comment: form.comment.value,
+    //         }
+    //         await commentsService.editComment(commentEdit)
+    //     } catch (error) {
+    //         console.log('[Edit Comment]', error);
+    //         Pop.error(error)
+    //     }
+    // }
 
     async deleteComment(commentId){
         try {
