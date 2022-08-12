@@ -11,7 +11,6 @@ export class Post{
     get Template() {
         return `
         //modale
-        <div class="modal fade" id="post-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-size">
                 <div class="modal-content">
 
@@ -26,10 +25,13 @@ export class Post{
                         <div class="col-6">
                             <div class="mx-3">
                                 <div>
-                                    <p class="fw-2">Caption:</p>
+                                    <p class="fw-2">${this.caption}</p>
                                 </div>
                                 <div>
-                                    // SECTION Comments Go Here
+
+                                // <-- SECTION Comments go here -->
+                                    <p></p>
+
                                 </div>
                             </div>
                         </div>
@@ -54,12 +56,10 @@ export class Post{
                                     </div>
                                 </form>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         `
     }
 }

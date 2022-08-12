@@ -11,11 +11,17 @@ function _drawPost(postId) {
     document.getElementById('post').innerHtml = Template
 }
 
-
-
 export class PostsController {
     constructor() {
-        ProxyState.on('post', _drawPost)
+        ProxyState.on('posts', _drawPost)
+    }
+    async getPosts(){ 
+        try {
+            await postsService.getPosts()
+        } catch (error) {
+            console.error('[Get Posts]', error)
+            Pop.error(error)
+        }
     }
     
 

@@ -1,7 +1,8 @@
-import BaseController from "../utils/BaseController.js"
 import { Auth0Provider } from '@bcwdev/auth0provider'
+import BaseController from "../utils/BaseController.js"
 import { postsService } from "../services/PostsService.js"
 import { BadRequest, Forbidden } from "../utils/Errors.js"
+import { commentsService } from "../services/CommentsService.js"
 
 export class PostsController extends BaseController {
 
@@ -28,7 +29,8 @@ export class PostsController extends BaseController {
   }
   async getCommentsByPostId(req, res, next) {
     try {
-      let comments = await commentsService.getCommentsByPostId(req.params.postId)
+      const postId = req.params.id
+      let comments = await commentsService.getCommentsByPostId(postId)
       res.send(comments)
     } catch (error) {
       next(error)

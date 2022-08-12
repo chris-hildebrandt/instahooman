@@ -12,8 +12,11 @@ class AppState extends EventEmitter {
    /** @type {import('./Models/AllPost').AllPost[]} */
    allposts = []
 
-      /** @type {import('./Models/Post').Post[]} */
+    /** @type {import('./Models/Post').Post[]} */
    posts = []
+
+     /** @type {import('./Models/Post').Post[]} */
+    comments = []
 
 }
 
