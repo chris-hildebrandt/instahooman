@@ -23,18 +23,18 @@ let downVote = (ProxyState.post.downvote -= 1)
 
     // let downVotes = document.getElementById('dislikes')
     // downVotes.innerText = downVote
-   
 
 }
 
 export class PostsController {
     constructor() {
-        ProxyState.on('posts', _drawPost)
-        ProxyState.on('posts', Vote)
+        ProxyState.on('post', _drawPost)
+        // ProxyState.on('posts', Vote)
     
     }
     async getPosts(){ 
         try {
+            console.log('Getting Single Post');
             await postsService.getPosts()
         } catch (error) {
             console.error('[Get Posts]', error)

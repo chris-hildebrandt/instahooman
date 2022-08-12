@@ -1,7 +1,17 @@
 import { BadRequest } from "@bcwdev/auth0provider/lib/Errors"
 import { dbContext } from "../db/DbContext"
 // NOTE may need to import posts service
+
 class CommentsService {
+    async getComments() {
+        let comments = await dbContext.Comments.find()
+        return comments
+    }
+
+    async getCommentsByPostId(postId) {
+        throw new Error("Method not implemented.")
+    }
+
     async getCommentsOnPost(postId) {
         let postComments = await dbContext.Comments.find({ postId }).populate('commenter', 'img')
         return postComments

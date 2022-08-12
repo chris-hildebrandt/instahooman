@@ -1,4 +1,4 @@
-import { ProxyState } from "../AppState";
+import { ProxyState } from "../AppState.js";
 import { commentsService } from "../Services/CommentsService.js";
 import { Pop } from "../Utils/Pop.js";
 
@@ -14,10 +14,13 @@ export class CommentsController{
     
     constructor(){
         ProxyState.on('comments', _drawComment)
-        this.getComments()
+        ProxyState.on('post', _drawComment)
+        
     }
+
     async getComments() {
         try {
+            console.log('getting comments');
             await commentsService.getComment()
         } catch (error) {
             console.log('[Get Comments]', error)

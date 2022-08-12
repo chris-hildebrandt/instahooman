@@ -15,7 +15,7 @@ function _drawAllPost() {
 
 export class AllPostsController {
     constructor() {
-        ProxyState.on('allposts', _drawAllPost)
+        ProxyState.on('posts', _drawAllPost)
         this.getAllPost()
     }
     async setSinglePost(postId) {
@@ -33,7 +33,7 @@ export class AllPostsController {
             await allpostsService.getAllPost()
 
         } catch (error) {
-            console.log('[Getting Feed]', error);
+            console.log('[Getting All Post]', error);
             Pop.error(error)
         }
     }
