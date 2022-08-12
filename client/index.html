@@ -25,7 +25,7 @@
 </head>
 
 <body>
-  <header>
+  <!-- <header>
     <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
       <a class="navbar-brand" href="#">
         <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
@@ -37,140 +37,41 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+        <div class="navbar-nav"> -->
           <!-- NAVLINKS -->
-        </div>
+        <!-- </div>
       </div>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
     </nav>
-  </header>
+  </header> -->
     <!-- SECTION This is our nav section -->
-    <nav class="row bg-white border-bottom p-3">
-      <div class="d-flex justify-content-around">
-          <span class="text-dark t-font">Instahuman</span>
-          <div class="d-flex align-items-center">
-              <span class="add mx-5" onclick="app.postController.viewPictures()" data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"><b><i class="mdi mdi-plus-circle-outline fs-3"></i></b></span>
-              <button class="btn btn-outline-dark b-bor">Sign In</button>
-          </div>
-      </div>
-    </nav>
+    <header>
+      <nav class="row bg-white border-bottom p-3">
+        <div class="d-flex justify-content-around">
+            <span class="text-dark t-font">Instahuman</span>
+            <div class="d-flex align-items-center">
+                <span class="add mx-5" onclick="app.postController.viewPictures()" data-bs-toggle="modal"
+                    data-bs-target="#addPicture"><b><i class="mdi mdi-plus-circle-outline fs-3"></i></b></span>
+                <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
+            </div>
+        </div>
+      </nav>
+    </header>
     <!-- SECTION This is our body -->
 
-    <main class="vh">
-      <div class="d-flex justify-content-evenly pt-5">
-          <img class="img-fluid p-img"
-              src="https://images.unsplash.com/photo-1659535915214-e7cbac112038?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-              alt="" data-bs-toggle="modal" data-bs-target="#post-modal">
-          <img class="img-fluid p-img"
-              src="https://images.unsplash.com/photo-1532635241-17e820acc59f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1630&q=80"
-              alt="">
-          <img class="img-fluid p-img"
-              src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-              alt="">
+    <main class="container-fluid">
+      <div id="post" class="row">
+          <!-- <div class="pt-5 col-3">
+              <img class=" img-fluid p-img"
+                  src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+                  alt="" data-bs-toggle="modal" data-bs-target="#post-modal">
+          </div> -->
       </div>
-      <div class="d-flex justify-content-evenly pt-5">
-          <img class="img-fluid p-img"
-              src="https://images.unsplash.com/photo-1511732351157-1865efcb7b7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80alt="">
-          <img class=" img-fluid p-img"
-              src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80alt="">
-          <img class=" img-fluid p-img"
-              src="https://images.unsplash.com/photo-1657214059493-986710bc4788?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80 alt="">
-      </div>
+    </main>
 
           
 
-          <!-- SECTION This is for the modal TO ADD A PICTURE -->
-
-          <div class=" modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-          <div class="modal-dialog">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Add Picture</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                      <form>
-                          <div class="mb-3">
-                              <label for="img" class="col-form-label">Image:</label>
-                              <input type="text" class="form-control" id="post-img">
-                          </div>
-                          <div class="mb-3 c-scroll">
-                              <label for="caption" class="col-form-label">Caption:</label>
-                              <textarea class="form-control" id="post-caption" minlength="2"
-                                  maxlength="50"></textarea>
-                          </div>
-                      </form>
-                  </div>
-                  <div class="col-12 modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                      <button type="button" class="btn btn-primary">Upload Post</button>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-
-      <!-- SECTION This modal is to look at a post and it's comments -->
-      <div class="modal fade" id="post-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-size">
-              <div class="modal-content">
-
-                  <div class="row modal-body">
-                      <div class="col-6">
-                          <div>
-                              <img class="img-fluid post-img"
-                                  src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-                                  alt="">
-                          </div>
-                      </div>
-                      <div class="col-6">
-                          <div class="mx-3">
-                              <div>
-                                  <p class="fw-2">Caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                      sed do eiusmod
-                                      tempor incididunt ut labore et dolore magna aliqua.</p>
-                              </div>
-                              <div>
-                                  <p class="fw-2">Comment: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                      sed do eiusmod
-                                      tempor incididunt ut labore et dolore magna aliqua.</p>
-                              </div>
-                              <div>
-                                  <p class="fw-2">Comment: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                      sed do eiusmod
-                                      tempor incididunt ut labore et dolore magna aliqua.</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-12 border border-top">
-                      <div class="row justify-content-between p-3">
-
-                          <div class="col-3">
-                              <h4 class="text-center">🔥</h4>
-                          </div>
-                          <div class="col-3">
-                              <h4 class="text-center">🥶</h4>
-                          </div>
-
-                          <div class="col-6">
-                              <form class="ps-4">
-                                  <div class="input-group">
-                                      <input type="text" class="form-control" placeholder="Enter Comment"
-                                          aria-label="post's comments" aria-describedby="button-addon2" minlength="2"
-                                          maxlength="50">
-                                      <button class="btn btn-primary" type="button" id="button-addon2">Post</button>
-                                  </div>
-                              </form>
-                          </div>
-
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+          
 
 
 
@@ -178,9 +79,15 @@
 
 
 
+<footer>
+  <div class="row bg-dark">
+    <div>
 
+    </div>
+  </div>
+</footer>
 
-  <main id="app">
+  <!-- <main id="app">
     <div class="container-fluid">
       <div class="row my-3">
         <div class="col-lg-5" id="auth-settings">
@@ -200,14 +107,90 @@
         </div>
       </div>
     </div>
-  </main>
-  <footer class="container-fluid bg-dark text-light">
-    <div class="row text-center">
-      <div class="col">
-        <p><small>Made with 💖 by CodeWorks</small></p>
-      </div>
+  </main> -->
+
+  <!-- SECTION This is for the modal TO ADD A PICTURE -->
+
+<div class="modal fade" id="addPicture" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Picture</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                    <label for="img" class="col-form-label">Image:</label>
+                    <input type="text" class="form-control" id="post-img">
+                </div>
+                <div class="mb-3 c-scroll">
+                    <label for="caption" class="col-form-label">Caption:</label>
+                    <textarea class="form-control" id="post-caption" minlength="2"
+                        maxlength="50"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary">Upload Post</button>
+        </div>
     </div>
-  </footer>
+</div>
+</div>
+
+
+<!-- SECTION This modal is to look at a post and it's comments -->
+<div class="modal fade" id="post" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-size">
+<div class="modal-content">
+
+    <div class="row modal-body">
+        <div class="col-6">
+            <div>
+                <img class="img-fluid post-img"
+                    src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+                    alt="">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mx-3">
+                <div>
+                    <p class="fw-2">Caption:</p>
+                </div>
+                <div>
+                    <p class="fw-2">Comment:</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 border border-top">
+        <div class="row justify-content-between p-3">
+
+            <div class="col-3">
+                <h4 class="text-center">🔥</h4>
+            </div>
+            <div class="col-3">
+                <h4 class="text-center">🥶</h4>
+            </div>
+
+            <div class="col-6">
+                <form class="ps-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Enter Comment"
+                            aria-label="post's comments" aria-describedby="button-addon2" minlength="2"
+                            maxlength="50">
+                        <button class="btn btn-primary" type="button" id="button-addon2">Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+  
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.15/auth0-spa-js.production.js"></script>
@@ -225,3 +208,7 @@
 </body>
 
 </html>
+
+
+
+

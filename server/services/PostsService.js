@@ -30,17 +30,17 @@ class PostsService {
     return posts
   }
 
-  async editPost(postId, postData) {
-    let post = await dbContext.Posts.findById(postId)
+  // async editPost(postId, postData) {
+  //   let post = await dbContext.Posts.findById(postId)
 
-    post.title = postData.title || post.title
-    post.img = postData.img || post.img
-    post.upVotes = postData.upVotes || post.upVotes
-    post.downVotes = post.downVotes || post.downVotes
+  //   post.title = postData.title || post.title
+  //   post.img = postData.img || post.img
+  //   post.upVotes = postData.upVotes || post.upVotes
+  //   post.downVotes = post.downVotes || post.downVotes
 
-    await post.save()
-    return post
-  }
+  //   await post.save()
+  //   return post
+  // }
 
   async deletePost(postId, userId) {
     let post = await this.getPostById(postId)

@@ -6,7 +6,7 @@ export class Comment{
     }
     get Template(){
         return `
-        
+        <p>${this.comment}</p>
         `
     }
 }

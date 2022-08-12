@@ -1,12 +1,12 @@
 import { Pop } from "../Utils/Pop.js";
 import { ProxyState } from "../AppState.js";
-import { AllPost } from "../Models/AllPost.js";
+import { Post } from "../Models/Post.js";
 import { allpostsService } from "../Services/AllPostsService.js";
 
 
 function _drawAllPost() {
     let template = ""
-    ProxyState.allposts.forEach(f => template += f.Template)
+    ProxyState.posts.forEach(f => template += f.CardTemplate)
     // @ts-ignore
     document.getElementById('all-post').innerHTML = template
 }
@@ -18,6 +18,14 @@ export class AllPostsController {
         ProxyState.on('allposts', _drawAllPost)
         this.getAllPost()
     }
+    async setSinglePost(postId){
+        try {
+          await allpostsService.setSinglePost(postId)
+        } catch (error) {
+          console.log('[Set Single Post]');
+          Pop.error(error)
+        }
+      }
     async getAllPost() {
         try {
             await allpostsService.getAllPost()

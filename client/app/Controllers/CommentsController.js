@@ -18,7 +18,7 @@ export class CommentsController{
     }
     async getComments() {
         try {
-            await commentsService.getComments()
+            await commentsService.getComment()
         } catch (error) {
             console.log('[Get Comments]', error)
             Pop.error(error)
@@ -33,18 +33,27 @@ export class CommentsController{
             Pop.error(error)
         }
     }
-    async editComment(){
+    async editComment(commentId){
         try {
-            
+            // @ts-ignore
+            window.event.preventDefault()
+            // @ts-ignore
+            let form = window.event.target
+            let commentEdit ={
+                id: commentId,
+                // @ts-ignore=
+                comment: form.comment.value,
+            }
+            await commentsService.editComment(commentEdit)
         } catch (error) {
             console.log('[Edit Comment]', error);
             Pop.error(error)
         }
     }
 
-    async deleteComment(){
+    async deleteComment(commentId){
         try {
-            
+            await commentsService.deleteComment(commentId)
         } catch (error) {
             console.log('[Delete Comment]', error)
             Pop.error(error)

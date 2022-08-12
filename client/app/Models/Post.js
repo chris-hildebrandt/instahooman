@@ -8,18 +8,27 @@ export class Post{
         this.downvote = data.downvote
     }
 
-    get Template() {
+
+    get CardTemplate(){
         return `
-        //modale
+        // ALL POST GO HERE
+        <div class="pt-5 col-3">
+            <img class=" img-fluid p-img"
+                  src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+                  alt="" data-bs-toggle="modal" data-bs-target="#all-post">
+        </div>
+        `
+    }
+
+    get ModalTemplate() {
+        return `
             <div class="modal-dialog modal-size">
                 <div class="modal-content">
 
                     <div class="row modal-body">
                         <div class="col-6">
                             <div>
-                                <img class="img-fluid post-img"
-                                    src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-                                    alt="">
+                                <img class="img-fluid post-img" src="${this.img}" alt="">
                             </div>
                         </div>
                         <div class="col-6">
@@ -30,7 +39,9 @@ export class Post{
                                 <div>
 
                                 // <-- SECTION Comments go here -->
+                                    <div id="comments">
                                     <p></p>
+                                    </div>
 
                                 </div>
                             </div>
@@ -40,10 +51,10 @@ export class Post{
                         <div class="row justify-content-between p-3">
 
                             <div class="col-3">
-                                <h4 class="text-center">🔥</h4>
+                                <h4 class="text-center" id="likes" onclick="app.postsController.downVote()">🔥</h4>
                             </div>
                             <div class="col-3">
-                                <h4 class="text-center">🥶</h4>
+                                <h4 class="text-center" id="dislikes" onclick="app.postsController.upVote()">🥶</h4>
                             </div>
 
                             <div class="col-6">
