@@ -47,7 +47,7 @@ export class AllPostsController {
                 // @ts-ignore
                 img: form.img.value,
                 // @ts-ignore
-                caption: form.caption.value
+                title: form.title.value
             }
             await allpostsService.createPost(newPost)
             // @ts-ignore

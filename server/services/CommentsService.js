@@ -9,7 +9,8 @@ class CommentsService {
     }
 
     async getCommentsByPostId(postId) {
-        throw new Error("Method not implemented.")
+        let comments = await dbContext.Comments.find({ postId })
+        return comments
     }
 
     async getCommentsOnPost(postId) {

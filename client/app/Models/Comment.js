@@ -2,11 +2,11 @@
 export class Comment{
     constructor(data){
         this.id =  data.id,
-        this.comment = data.comment
+        this.message = data.message
     }
     get Template(){
         return `
-        <p>${this.comment}</p>
+        <p>${this.message}</p>
         `
     }
 }

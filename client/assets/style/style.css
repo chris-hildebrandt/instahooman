@@ -54,3 +54,7 @@ img {
 .c-scroll {
     overflow-y: auto;
 }
+
+.l-logo {
+    max-height: 2.5em;
+}

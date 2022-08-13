@@ -37,9 +37,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav"> -->
-          <!-- NAVLINKS -->
-        <!-- </div>
+        <div class="navbar-nav"> 
+          <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
+        </div>
       </div>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
     </nav>
@@ -52,7 +52,7 @@
             <div class="d-flex align-items-center">
                 <span class="add mx-5" onclick="app.postController.viewPictures()" data-bs-toggle="modal"
                     data-bs-target="#addPicture"><b><i class="mdi mdi-plus-circle-outline fs-3"></i></b></span>
-                <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
+                  <div class="flex-grow-1 justify-content-end align-items-center d-flex l-logo" width="" id="authstate"></div>
             </div>
         </div>
       </nav>
@@ -60,7 +60,7 @@
     <!-- SECTION This is our body -->
 
     <main class="container-fluid">
-      <div id="post" class="row">
+      <div id="all-post" class="row">
           <!-- <div class="pt-5 col-3">
               <img class=" img-fluid p-img"
                   src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
@@ -109,7 +109,7 @@
     </div>
   </main> -->
 
-  <!-- SECTION This is for the modal TO ADD A PICTURE -->
+  <!-- SECTION This is for the modal TO ADD A POST -->
 
 <div class="modal fade" id="addPicture" tabindex="-1" aria-labelledby="exampleModalLabel"
 aria-hidden="true">
@@ -123,17 +123,17 @@ aria-hidden="true">
             <form onsubmit="app.allPostsController.createPost()">
                 <div class="mb-3">
                     <label for="img" class="col-form-label">Image:</label>
-                    <input type="text" class="form-control" id="post-img">
+                    <input type="text" class="form-control" id="img">
                 </div>
                 <div class="mb-3 c-scroll">
-                    <label for="caption" class="col-form-label">Caption:</label>
-                    <textarea class="form-control" id="post-caption" minlength="2"
+                    <label for="title" class="col-form-label">Title:</label>
+                    <textarea class="form-control" id="title" minlength="2"
                         maxlength="50"></textarea>
                 </div>
             
                 </div>
                 <div class="col-12 modal-footer">
-                  <button type="button" class="btn btn-primary">Upload Post</button>
+                  <button type="submit" class="btn btn-primary">Upload Post</button>
                 </div>
               </form>
         </div>
@@ -142,8 +142,8 @@ aria-hidden="true">
 
 
 <!-- SECTION This modal is to look at a post and it's comments -->
-<div class="modal fade" id="post" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-size">
+<div class="modal fade" id="all-post" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal-dialog modal-size">
 <div class="modal-content">
 
     <div class="row modal-body">
@@ -188,7 +188,7 @@ aria-hidden="true">
         </div>
     </div>
 </div>
-</div>
+</div> -->
 </div>
   
 
