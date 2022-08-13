@@ -82,11 +82,5 @@ function avatarTemplate(account) {
       <img class="rounded-circle" src="${account.picture}" alt="${account.name}" height="45"/>
       <span class="mx-1">${account.name}</span>
       </div>`
-    : AuthService.loading
-      ? /* html */ `
-      <div class="skeleton-loader dark avatar"></div>
-      <div class="skeleton-loader dark text sm mx-2"></div>`
-      : /* html */`
-      <div></div>
-      `
+      :''
 }

@@ -5,11 +5,12 @@ import { api } from "./AxiosService.js";
 
 class AllPostsService {
   async setSinglePost(postId) {
-    const post = await ProxyState.posts.find(c => c.id == postId)
+    const post = await ProxyState.posts.find(p => p.id == postId)
     if(!post){
-      return
+      throw new Error('Invalid Post ID')
     }
     ProxyState.post = post  //TODO test res.data
+    console.log(ProxyState.post);
   }
 
   async deletePost(postId) {
@@ -30,4 +31,4 @@ class AllPostsService {
 
 }
 
-export const allpostsService = new AllPostsService()
+export const allPostsService = new AllPostsService()

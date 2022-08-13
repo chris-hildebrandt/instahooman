@@ -1,7 +1,7 @@
 import { Pop } from "../Utils/Pop.js";
 import { ProxyState } from "../AppState.js";
 import { Post } from "../Models/Post.js";
-import { allpostsService } from "../Services/AllPostsService.js";
+import { allPostsService } from "../Services/AllPostsService.js";
 
 
 function _drawAllPost() {
@@ -21,16 +21,16 @@ export class AllPostsController {
     async setSinglePost(postId) {
         try {
             console.log("Setting Single Post", postId);
-            await allpostsService.setSinglePost(postId)
+            await allPostsService.setSinglePost(postId)
         } catch (error) {
-            console.log('[Set Single Post]');
+            console.log('[Set Single Post]', error);
             Pop.error(error)
         }
     }
     async getAllPost() {
         try {
             console.log("Getting All Post");
-            await allpostsService.getAllPost()
+            await allPostsService.getAllPost()
 
         } catch (error) {
             console.log('[Getting All Post]', error);
@@ -49,7 +49,7 @@ export class AllPostsController {
                 // @ts-ignore
                 title: form.title.value
             }
-            await allpostsService.createPost(newPost)
+            await allPostsService.createPost(newPost)
             // @ts-ignore
             form.reset()
         } catch (error) {
@@ -60,7 +60,7 @@ export class AllPostsController {
     async deletePost(postId) {
         try {
             console.log("Deleting Post", postId);
-            await allpostsService.deletePost(postId)
+            await allPostsService.deletePost(postId)
         } catch (error) {
             console.log('[Deleting Post]', error)
             Pop.error(error)

@@ -6,7 +6,7 @@ export class Comment{
     }
     get Template(){
         return `
-        <p>${this.message}</p>
+        <p>${this.message} <small onclick="app.commentsController.deleteComment(${this.id})"class="del-btn">ⓧ</small></p>
         `
     }
 }

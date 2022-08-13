@@ -21,9 +21,13 @@
     background-repeat: no-repeat;
     background-position: center;
     object-fit: cover;
-    width: 30%;
+    /* width: 30%; */
     height: 30vh;
     border-radius: 10px;
+}
+
+.login-bar{
+    min-width: 250px !important;
 }
 
 .post-img {
@@ -39,7 +43,8 @@
     box-shadow: 0 5px 10px -2px rgb(27, 27, 27);
 }
 
-img {
+/* this changes every img */
+main img {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -57,4 +62,8 @@ img {
 
 .l-logo {
     max-height: 2.5em;
+}
+
+.del-btn {
+    color: red;
 }
