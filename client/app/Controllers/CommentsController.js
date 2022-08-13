@@ -3,34 +3,43 @@ import { commentsService } from "../Services/CommentsService.js";
 import { Pop } from "../Utils/Pop.js";
 
 
-function _drawComment(){
-    let template= ''
+function _drawComment() {
+    let template = ''
     ProxyState.comments.forEach(c => template += c.Template)
     // @ts-ignore
     document.getElementById('comments').innerHTML = template
 }
 
-export class CommentsController{
-    
-    constructor(){
+export class CommentsController {
+
+    constructor() {
         ProxyState.on('comments', _drawComment)
         ProxyState.on('post', _drawComment)
-        
     }
 
     async getComments() {
         try {
-            console.log('getting comments');
-            await commentsService.getComment()
+            console.log('getting comments', ProxyState.comments);
+            await commentsService.getComments()
         } catch (error) {
             console.log('[Get Comments]', error)
             Pop.error(error)
         }
     }
 
-    async createComment(){
+    async createComment(postId) {
         try {
-            await commentsService.createComment()
+            // @ts-ignore
+            window.event.preventDefault()
+            // @ts-ignore
+            let form = window.event.target
+            let newComment = {
+                // @ts-ignore
+                message: form.message.value,
+                postId: postId
+            }
+            // @ts-ignore
+            await commentsService.createComment(newComment)
         } catch (error) {
             console.log('[Create Comment]', error);
             Pop.error(error)
@@ -54,7 +63,7 @@ export class CommentsController{
     //     }
     // }
 
-    async deleteComment(commentId){
+    async deleteComment(commentId) {
         try {
             await commentsService.deleteComment(commentId)
         } catch (error) {

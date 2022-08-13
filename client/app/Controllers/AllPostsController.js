@@ -2,6 +2,7 @@ import { Pop } from "../Utils/Pop.js";
 import { ProxyState } from "../AppState.js";
 import { Post } from "../Models/Post.js";
 import { allPostsService } from "../Services/AllPostsService.js";
+import { commentsService } from "../Services/CommentsService.js";
 
 
 function _drawAllPost() {
@@ -20,7 +21,7 @@ export class AllPostsController {
     }
     async setSinglePost(postId) {
         try {
-            console.log("Setting Single Post", postId);
+            await Post.getComments(postId)
             await allPostsService.setSinglePost(postId)
         } catch (error) {
             console.log('[Set Single Post]', error);
