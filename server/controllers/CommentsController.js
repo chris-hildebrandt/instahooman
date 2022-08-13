@@ -8,11 +8,21 @@ export class CommentsController extends BaseController {
         super('api/comments')
         this.router
             // NOTE Not sure what we will need here, just getting all options laid out
+            .get('', this.getComments)
             .use(Auth0Provider.getAuthorizedUserInfo)
-            .post('', this.createComment)
             .get('/:commentId', this.getCommentById)
+            .post('', this.createComment)
             .delete('/:commentId', this.deleteComment)
             .put('/:commentId', this.editComment)
+    }
+
+    async getComments(req, res, next){
+        try {
+            let comments = await commentsService.getComments()
+            res.send(comments)
+        } catch (error) {
+            next(error)
+        }
     }
 
     async getCommentById(req, res, next) {

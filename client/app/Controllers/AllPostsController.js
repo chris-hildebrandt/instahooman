@@ -21,7 +21,6 @@ export class AllPostsController {
     }
     async setSinglePost(postId) {
         try {
-            await Post.getComments(postId)
             await allPostsService.setSinglePost(postId)
         } catch (error) {
             console.log('[Set Single Post]', error);

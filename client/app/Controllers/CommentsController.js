@@ -4,8 +4,12 @@ import { Pop } from "../Utils/Pop.js";
 
 
 function _drawComment() {
+    console.log('drawcomments works?', ProxyState.post);
     let template = ''
-    ProxyState.comments.forEach(c => template += c.Template)
+    let postId = ProxyState.post.id
+    let filteredComments = ProxyState.comments.filter(c => c.postId == postId)
+    filteredComments.forEach(c => template += c.Template)
+
     // @ts-ignore
     document.getElementById('comments').innerHTML = template
 }
@@ -15,6 +19,7 @@ export class CommentsController {
     constructor() {
         ProxyState.on('comments', _drawComment)
         ProxyState.on('post', _drawComment)
+        this.getComments()
     }
 
     async getComments() {

@@ -2,7 +2,6 @@ import { ProxyState } from "../AppState.js";
 import { postsService } from "../Services/PostsService.js";
 import { Pop } from "../Utils/Pop.js";
 
-
 // TODO draw a post based on postId
 
 function _drawPost() {

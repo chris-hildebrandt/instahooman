@@ -11,7 +11,7 @@ class PostsService {
   }
   
   async getPostById(postId) {
-    console.log('getting post by id service', postId);
+  console.log('getting post by id service', postId);
     let post = await dbContext.Posts.findById(postId)
     if (!post) {
       throw new BadRequest('Invalid Post ID')
