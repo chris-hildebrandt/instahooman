@@ -12,15 +12,15 @@ function _drawPost() {
 let likes = 0
 
 function Vote() {
-    let upVote = (ProxyState.post.upvote += 1)
-    let downVote = (ProxyState.post.downvote -= 1)
+    let upvote = (ProxyState.post.upvote += 1)
+    let downvote = (ProxyState.post.downvote -= 1)
 
 
     // let upvotes = document.getElementById('likes')
-    // upvotes.innerText = upVote
+    // upvotes.innerText = upvote
 
-    // let downVotes = document.getElementById('dislikes')
-    // downVotes.innerText = downVote
+    // let downvotes = document.getElementById('dislikes')
+    // downvotes.innerText = downvote
 
 }
 

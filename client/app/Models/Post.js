@@ -53,7 +53,7 @@ export class Post {
                 <form onsubmit="app.commentsController.createComment('${this.id}')" class="ps-4">
                     <div class="input-group">
                         <input id="message" type="text" class="form-control" placeholder="Enter Comment"
-                            aria-label="post's comments" aria-describedby="button-addon2" minlength="2"
+                            aria-label="post's comments" aria-described-by="button-addon2" minlength="2"
                             maxlength="50">
                         <button class="btn btn-primary" type="submit" id="button-addon2">Post</button>
                     </div>
