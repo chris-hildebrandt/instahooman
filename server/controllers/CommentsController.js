@@ -1,5 +1,5 @@
-import { Auth0Provider } from '@bcwdev/auth0provider'
 import { commentsService } from '../services/CommentsService.js'
+import { Auth0Provider } from '@bcwdev/auth0provider'
 import BaseController from '../utils/BaseController'
 import { Forbidden } from "../utils/Errors.js"
 
@@ -8,7 +8,7 @@ export class CommentsController extends BaseController {
         super('api/comments')
         this.router
             // NOTE Not sure what we will need here, just getting all options laid out
-            .get('', this.getComments)
+            .get('/post/:postId', this.getCommentsByPostId)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .get('/:commentId', this.getCommentById)
             .post('', this.createComment)
@@ -16,9 +16,10 @@ export class CommentsController extends BaseController {
             .put('/:commentId', this.editComment)
     }
 
-    async getComments(req, res, next){
+    async getCommentsByPostId(req, res, next) {
         try {
-            let comments = await commentsService.getComments()
+            const postId = req.params.postId
+            let comments = await commentsService.getCommentsByPostId(postId)
             res.send(comments)
         } catch (error) {
             next(error)

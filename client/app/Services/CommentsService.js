@@ -10,7 +10,6 @@ class CommentsService {
     }
     async createComment(newComment) {
         let res = await api.post(`api/comments`, newComment)
-        console.log(res.data)
         let updatedComment = new Comment(res.data) //TODO CHECK res.data
         ProxyState.comments = [...ProxyState.comments, updatedComment]
     }

@@ -10,28 +10,20 @@ export class PostsController extends BaseController {
     super('api/posts')
     this.router
       .get('', this.getAllPosts)
-      .get('/:postId', this.getCommentsByPostId)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('/:postId', this.getPostById)
-      .get('/:postId', this.getPostsByCreatorId)
+      .get('/userId/:creatorId', this.getPostsByCreatorId)
       .post('', this.createPost)
       .delete('/:postId', this.deletePost)
       .put('/:postId', this.editPost)
+      .put('/upvote/:postId', this.upvote)
+      .put('/downvote/:postId', this.downvote)
   }
 
   async getAllPosts(req, res, next) {
     try {
       const posts = await postsService.getAllPosts()
       res.send(posts)
-    } catch (error) {
-      next(error)
-    }
-  }
-  async getCommentsByPostId(req, res, next) {
-    try {
-      const postId = req.params.postId
-      let comments = await commentsService.getCommentsByPostId(postId)
-      res.send(comments)
     } catch (error) {
       next(error)
     }
@@ -48,8 +40,7 @@ export class PostsController extends BaseController {
 
   async getPostsByCreatorId(req, res, next) {
     try {
-      const userId = req.userInfo.id
-      const posts = await postsService.getPostsByCreatorId(userId)
+      const posts = await postsService.getPostsByCreatorId(req.params.creatorId)
       return res.send(posts)
     } catch (error) {
       next(error)
@@ -96,4 +87,22 @@ export class PostsController extends BaseController {
       next(error)
     }
   }
+
+  async upvote(req, res, next) {
+    try {
+      const upvotes = await postsService.upvote(req.params.postId)
+      res.send(upvotes)
+    } catch (error) {
+      next(error)
+    }
+  }
+  async downvote(req, res, next) {
+    try {
+      const downvotes = await postsService.downvote(req.params.postId)
+      res.send(downvotes)
+    } catch (error) {
+      next(error)
+    }
+  }
+
 }
