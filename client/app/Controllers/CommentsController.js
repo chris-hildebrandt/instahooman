@@ -16,7 +16,7 @@ export class CommentsController {
 
   constructor() {
     ProxyState.on('currentPost', this.getCommentsByPostId)
-    ProxyState.on('comments', this.getCommentsByPostId)
+    // ProxyState.on('comments', this.getCommentsByPostId)
   }
 
   async getCommentsByPostId() {
