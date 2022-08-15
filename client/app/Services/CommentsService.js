@@ -4,7 +4,8 @@ import { api } from "./AxiosService.js";
 
 class CommentsService {
     async getComments() {
-        let res = await api.get('api/comments')
+        const postId = ProxyState.currentPost.id
+        let res = await api.get(`api/comments/post/${postId}`)
         ProxyState.comments = res.data.map(c => new Comment(c))
         //TODO CHECK res.data.map if correct info is being pulled in ^^^^
     }

@@ -2,11 +2,11 @@ import { postsService } from "../Services/PostsService.js"
 import { ProxyState } from "../AppState.js"
 import { logger } from "../Utils/Logger.js"
 import { Pop } from "../Utils/Pop.js"
+import { commentsService } from "../Services/CommentsService.js"
 
 
 function _drawCurrentPost() {
   // @ts-ignore
-  // console.log(ProxyState.currentPost);
   // @ts-ignore
   document.getElementById('details-modal-content').innerHTML = ProxyState.currentPost.ModalTemplate
 }
@@ -20,20 +20,20 @@ function _drawAllPosts() {
 
 export class PostsController {
   constructor() {
-    ProxyState.on('currentPost', _drawCurrentPost)
     ProxyState.on('posts', _drawAllPosts)
+    ProxyState.on('currentPost', _drawCurrentPost)
     this.getAllPosts()
   }
 
   async getAllPosts() {
     try {
-
       await postsService.getAllPosts()
     } catch (error) {
       console.error('[Getting All Posts]', error);
       Pop.error(error)
     }
   }
+
   async createPost() {
     try {
       // @ts-ignore
@@ -65,9 +65,9 @@ export class PostsController {
 
   async upvote(postId) {
     try {
-      let upvotes = await postsService.upvote(postId)
+      let post = await postsService.upvote(postId)
       // @ts-ignore
-      document.getElementById('upvote').innerText = upvotes
+      document.getElementById('upvote').innerText = post.upvotes
     } catch (error) {
       logger.error('[upvote]', error)
       Pop.error(error)
@@ -76,9 +76,9 @@ export class PostsController {
 
   async downvote(postId) {
     try {
-      let downvotes = await postsService.downvote(postId)
+      let post = await postsService.downvote(postId)
       // @ts-ignore
-      document.getElementById('downvote').innerText = downvotes
+      document.getElementById('downvote').innerText = post.downvotes
     } catch (error) {
       logger.error('[downvote]', error)
       Pop.error(error)

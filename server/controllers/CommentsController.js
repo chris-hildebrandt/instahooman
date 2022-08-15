@@ -9,8 +9,8 @@ export class CommentsController extends BaseController {
         this.router
             // NOTE Not sure what we will need here, just getting all options laid out
             .get('/post/:postId', this.getCommentsByPostId)
-            .use(Auth0Provider.getAuthorizedUserInfo)
             .get('/:commentId', this.getCommentById)
+            .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createComment)
             .delete('/:commentId', this.deleteComment)
             .put('/:commentId', this.editComment)

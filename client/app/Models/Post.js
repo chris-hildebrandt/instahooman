@@ -4,8 +4,8 @@ export class Post {
         this.img = data.img
         this.title = data.title
         this.id = data.id
-        this.upvote = data.upvote
-        this.downvote = data.downvote
+        this.upvotes = data.upvotes
+        this.downvotes = data.downvotes
     }
 
 
@@ -13,7 +13,6 @@ export class Post {
         return `
         <div class="pt-5 col-md-3" onclick="app.postsController.setCurrentPost('${this.id}')">
             <img class="img-fluid p-img" src="${this.img}" alt="" data-bs-toggle="modal" data-bs-target="#details-modal">
-            
         </div>
         `
     }
@@ -43,10 +42,10 @@ export class Post {
         <div class="row justify-content-between p-3">
 
             <div class="btn col-3" onclick="app.postsController.upvote('${this.id}')">
-                <h4 class="text-center"><span id="upvote">10</span> 🔥</h4>
+                <h4 class="text-center"><span id="upvote">${this.upvotes}</span> 🔥</h4>
             </div>
             <div class="btn col-3" onclick="app.postsController.downvote('${this.id}')">
-                <h4 id="downvote" class="text-center"><span id="downvote">2</span> 🥶</h4>
+                <h4 id="downvote" class="text-center"><span id="downvote">${this.downvotes}</span> 🥶</h4>
             </div>
 
             <div class="col-6">

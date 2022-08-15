@@ -9,11 +9,11 @@ class PostsService {
   }
   async createPost(newPost) {
     let res = await api.post('api/posts', newPost)
-    ProxyState.posts = [...ProxyState.posts, res.data]
+    ProxyState.posts = [...ProxyState.posts, new Post(res.data)]
   }
   async setCurrentPost(postId) {
     let res = await api.get(`api/posts/${postId}`)
-    ProxyState.currentPost = res.data
+    ProxyState.currentPost = new Post(res.data)
     console.log(ProxyState.currentPost);
   }
 

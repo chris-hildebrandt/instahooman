@@ -10,9 +10,9 @@ export class PostsController extends BaseController {
     super('api/posts')
     this.router
       .get('', this.getAllPosts)
-      .use(Auth0Provider.getAuthorizedUserInfo)
       .get('/:postId', this.getPostById)
       .get('/userId/:creatorId', this.getPostsByCreatorId)
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createPost)
       .delete('/:postId', this.deletePost)
       .put('/:postId', this.editPost)

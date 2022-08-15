@@ -8,19 +8,21 @@ function _drawComments() {
   ProxyState.comments.forEach(c => template += c.Template)
   // @ts-ignore
   console.log(document.getElementById('comments'));
+  // @ts-ignore
   document.getElementById('comments').innerHTML = template
 }
 
 export class CommentsController {
 
   constructor() {
-    ProxyState.on('currentPost', _drawComments)
-    // ProxyState.on('comments', _drawComments)
+    ProxyState.on('currentPost', this.getCommentsByPostId)
+    ProxyState.on('comments', this.getCommentsByPostId)
   }
 
   async getCommentsByPostId() {
     try {
       await commentsService.getComments()
+      _drawComments()
     } catch (error) {
       console.error('[Get Comments]', error)
       Pop.error(error)
